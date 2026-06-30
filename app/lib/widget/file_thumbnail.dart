@@ -45,3 +45,35 @@ class SmartFileThumbnail extends StatelessWidget {
     );
   }
 }
+
+// 包装器以保持与旧调用处的兼容性，修复编译未定义错误
+class FilePathThumbnail extends StatelessWidget {
+  final String path;
+  final FileType fileType;
+
+  const FilePathThumbnail({
+    required this.path,
+    required this.fileType,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SmartFileThumbnail(fileType: fileType, path: path);
+  }
+}
+
+class MemoryThumbnail extends StatelessWidget {
+  final dynamic bytes;
+  final FileType fileType;
+
+  const MemoryThumbnail({
+    required this.bytes,
+    required this.fileType,
+    dynamic size,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SmartFileThumbnail(fileType: fileType, bytes: bytes);
+  }
+}
