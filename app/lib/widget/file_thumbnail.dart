@@ -48,7 +48,7 @@ class SmartFileThumbnail extends StatelessWidget {
 
 // 包装器以保持与旧调用处的兼容性，修复编译未定义错误
 class FilePathThumbnail extends StatelessWidget {
-  final String path;
+  final String? path;
   final FileType fileType;
 
   const FilePathThumbnail({
